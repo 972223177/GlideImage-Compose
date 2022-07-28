@@ -46,7 +46,7 @@ class MainActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally,
                         modifier = Modifier.verticalScroll(state = rememberScrollState())
                     ) {
-                        GlideImageView(
+                        GlideImage(
                             model = url1,
                             viewTargetCreator = {
                                 object : DrawableImageViewTarget(it) {
@@ -60,7 +60,7 @@ class MainActivity : ComponentActivity() {
                             centerInside()
                         }
                         View2()
-                        GlideImageView(
+                        GlideImage(
                             model = url3,
                             modifier = Modifier
                                 .size(100.dp)
@@ -68,7 +68,7 @@ class MainActivity : ComponentActivity() {
                         ) {
                             fitCenter()
                         }
-                        GlideImageView(
+                        GlideImage(
                             model = R.mipmap.ic_launcher_round,
                             modifier = Modifier.size(100.dp)
                         ) {
@@ -85,7 +85,7 @@ class MainActivity : ComponentActivity() {
         var view2Switch by remember {
             mutableStateOf(false)
         }
-        GlideImageView(
+        GlideImage(
             model = if (view2Switch) url2 else url3,
             viewTargetCreator = {
                 object : BitmapImageViewTarget(it) {

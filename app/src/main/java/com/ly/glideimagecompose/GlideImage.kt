@@ -12,7 +12,7 @@ import com.bumptech.glide.request.target.DrawableImageViewTarget
 import com.bumptech.glide.request.target.ImageViewTarget
 
 @Composable
-fun GlideImageView(
+fun GlideImage(
     model: Any?,
     asBitmap: Boolean = false,
     clearWhenNull: Boolean = false,
@@ -24,7 +24,7 @@ fun GlideImageView(
     val state = rememberGlideImageState(model = model).also {
         it.model = model
     }
-    GlideImageView(
+    GlideImage(
         state = state,
         options = options,
         asBitmap = asBitmap,
@@ -39,7 +39,7 @@ fun GlideImageView(
  * state = rememberGlideImageState(model = R.drawable.xxx or url...)
  */
 @Composable
-fun GlideImageView(
+fun GlideImage(
     state: GlideImageState,
     asBitmap: Boolean = false,
     clearWhenNull: Boolean = false,
@@ -95,7 +95,6 @@ fun GlideImageView(
 
 private class GlideWrapper(
     var viewTarget: ImageViewTarget<*>? = null,
-    var options: RequestOptions? = null,
     var drawableViewTarget: DrawableImageViewTarget? = null,
     var bitmapViewTarget: BitmapImageViewTarget? = null
 ) {
@@ -110,7 +109,6 @@ private class GlideWrapper(
 
     fun release() {
         viewTarget = null
-        options = null
         drawableViewTarget = null
         bitmapViewTarget = null
     }
